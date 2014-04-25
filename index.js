@@ -1,7 +1,7 @@
 var _ = require('highland');
 var u = require('./hash');
 
-var size = 10000;
+var size = 100000;
 
 _(makeRandoms())
 
@@ -27,7 +27,8 @@ function makeRandoms () {
   var strs = [];
 
   for (i = 0; i < size; i++) {
-    len = Math.floor(Math.random() * 128);
+    // At least 8 and 128 max
+    len = Math.floor(Math.random() * 120) + 8;
     strs.push(u.makeRandom(len));
   }
 
